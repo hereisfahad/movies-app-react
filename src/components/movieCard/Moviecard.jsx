@@ -34,7 +34,7 @@ export default function Moviecard({ movie }) {
     <div style={styled}>
       <img alt="robots" src={Poster} className="grow" />
       <div style={detailStyled}>
-        <h2 style={{ textDecoration: "stlyed" }}>{Title}</h2>
+        <h1 style={{ textDecoration: "stlyed" }}>{Title}</h1>
         <p>Actors: {Actors}</p>
         <p>Awards: {Awards}</p>
         <p>Plot: {Plot}</p>

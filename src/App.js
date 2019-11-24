@@ -31,6 +31,7 @@ function App() {
       ) : (
         "Seach a movie by name."
       )}
+      <p style={{ position: "fixed", bottom: "0" }}>Using OMDB APU</p>
     </div>
   );
 }
