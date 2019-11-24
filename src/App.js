@@ -9,7 +9,7 @@ function App() {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    fetch(`http://www.omdbapi.com/?t=${search}&apikey=8b827095`)
+    fetch(`https://www.omdbapi.com/?t=${search}&apikey=8b827095`)
       .then(response => response.json())
       .then(users => {
         console.log(users);
