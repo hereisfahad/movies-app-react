@@ -1,24 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import Moviecard from "./components/movieCard/Moviecard";
+import "./App.css";
 
 function App() {
+  const [movie, setMovie] = useState([]);
+  const [search, setSearch] = useState("");
+  useEffect(() => {
+    // Update the document title using the browser API
+    fetch(`http://www.omdbapi.com/?t=${search}&apikey=8b827095`)
+      .then(response => response.json())
+      .then(users => {
+        console.log(users);
+        setMovie(users);
+      });
+  }, [search]);
+  console.log(movie);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input
+        style={{ margin: "3em" }}
+        type="text"
+        onChange={e => {
+          console.log(e.target.value);
+          setSearch(e.target.value);
+        }}
+      />
+      {movie.Title !== undefined ? (
+        <Moviecard movie={movie} />
+      ) : (
+        "Seach a movie by name."
+      )}
     </div>
   );
 }

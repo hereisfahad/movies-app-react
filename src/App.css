@@ -1,22 +1,23 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
+  background-color: #1e2129;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
+.grow {
+  /*   -moz-osx-font-smoothing: grayscale; */
+  /*   backface-visibility: hidden; */
+  /*   transform: translateZ(0); */
+  transition: transform 0.25s ease-out;
+}
 
-.App-link {
-  color: #09d3ac;
+.grow:hover {
+  transform: scale(1.1);
+}
+.grow:active {
+  transform: scale(0.7);
 }
