@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Moviecard from "./components/movieCard/Moviecard";
+// import useDebounce from "./debounce";
+
 import "./App.css";
 
 function App() {
   const [movie, setMovie] = useState([]);
   const [search, setSearch] = useState("");
+
   useEffect(() => {
-    // Update the document title using the browser API
     fetch(`http://www.omdbapi.com/?t=${search}&apikey=8b827095`)
       .then(response => response.json())
       .then(users => {
@@ -14,6 +16,7 @@ function App() {
         setMovie(users);
       });
   }, [search]);
+
   console.log(movie);
 
   return (
@@ -22,8 +25,8 @@ function App() {
         style={{ margin: "3em" }}
         type="text"
         onChange={e => {
-          console.log(e.target.value);
           setSearch(e.target.value);
+          console.log(e.target.value);
         }}
       />
       {movie.Title !== undefined ? (

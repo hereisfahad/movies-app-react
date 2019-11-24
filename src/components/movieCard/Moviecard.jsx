@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Moviecard({ movie }) {
-  console.log(movie);
+  // console.log(movie);
   const {
     Title,
     Actors,
